@@ -3,7 +3,6 @@ import styled from 'styled-components';
 
 export const TeachersContainer = styled.div`
   display: flex;
-  
 `;
 
 export const Content = styled.div`
@@ -12,6 +11,7 @@ export const Content = styled.div`
 
 export const TeachersContent = styled.div`
   padding: 20px;
+  margin-left: 20%;
 `;
 
 export const TeachersHeader = styled.h2`

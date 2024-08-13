@@ -1,9 +1,9 @@
 import { useState, useEffect } from 'react';
+import axios from 'axios';
+
 import Sidebar from './Sidebar';
-import EventCalender from './EventCalender';
 import Annoucement from './Announcement';
 import Performance from './Performance';
-import axios from 'axios';
 
 import {
   AdminDashboardContainer,

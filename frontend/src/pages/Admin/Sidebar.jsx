@@ -59,6 +59,10 @@ const Sidebar = () => {
         </SidebarNavItem>
         <SidebarNavItem>
           <BsBook />
+          <StyledLink to="/admin/assignments">Assignments</StyledLink>
+        </SidebarNavItem>
+        <SidebarNavItem>
+          <BsBook />
           <StyledLink to="/admin/exam">Exams</StyledLink>
         </SidebarNavItem>
 
