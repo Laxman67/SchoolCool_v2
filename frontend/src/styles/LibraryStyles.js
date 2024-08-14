@@ -8,6 +8,7 @@ export const LibraryContainer = styled.div`
 export const Content = styled.div`
   flex: 1;
   padding: 20px;
+  margin-left: 18%;
 `;
 
 export const Title = styled.h1`

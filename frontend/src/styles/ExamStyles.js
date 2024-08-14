@@ -7,6 +7,7 @@ export const ExamContainer = styled.div`
 
 export const SidebarContainer = styled.div`
   flex: 0 0 250px;
+  margin-left: 18%;
 `;
 
 export const Content = styled.div`

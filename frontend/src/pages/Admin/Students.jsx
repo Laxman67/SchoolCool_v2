@@ -19,25 +19,27 @@ const Students = () => {
     <StudentsContainer>
       <SideBar />
       <Content>
-        <StudentsHeader>Add Student</StudentsHeader>
+        <StudentsContent>
+          <StudentsHeader>Add Student</StudentsHeader>
 
-        <StudentsContainer>
-          <StudentsHeader>
-            <AddStudentForm>
-              <AddStudentInput type="text" placeholder="Enter Student Name" />
-              <AddStudentInput
-                type="text"
-                placeholder="Enter Registration Number"
-              />
-              <AddStudentInput type="text" placeholder="Enter Grade " />
+          <StudentsContainer>
+            <StudentsHeader>
+              <AddStudentForm>
+                <AddStudentInput type="text" placeholder="Enter Student Name" />
+                <AddStudentInput
+                  type="text"
+                  placeholder="Enter Registration Number"
+                />
+                <AddStudentInput type="text" placeholder="Enter Grade " />
 
-              <AddStudentButton>Add Student</AddStudentButton>
-            </AddStudentForm>
+                <AddStudentButton>Add Student</AddStudentButton>
+              </AddStudentForm>
 
-            {/* TODO  Complete List of Students view*/}
-            <StudentList></StudentList>
-          </StudentsHeader>
-        </StudentsContainer>
+              {/* TODO  Complete List of Students view*/}
+              <StudentList></StudentList>
+            </StudentsHeader>
+          </StudentsContainer>
+        </StudentsContent>
       </Content>
     </StudentsContainer>
   );

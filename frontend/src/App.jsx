@@ -17,6 +17,7 @@ import Library from './pages/Admin/Libraury';
 import EventCalender from './pages/Admin/EventCalender';
 import SettingProfile from './pages/Admin/SettingProfile';
 import Communication from './pages/Admin/Communication';
+import Announcement from './pages/Admin/Announcement';
 
 function App() {
   return (
@@ -44,7 +45,7 @@ function App() {
         <Route exact path="/admin/students" element={<Students />} />
         <Route exact path="/admin/assignments" element={<Assignments />} />
         <Route exact path="/admin/library" element={<Library />} />
-        <Route exact path="/admin/communication" element={<Communication />} />
+        <Route exact path="/admin/communication" element={<Announcement />} />
         <Route exact path="/admin/events" element={<EventCalender />} />
         <Route exact path="/admin/settings" element={<SettingProfile />} />
       </Routes>

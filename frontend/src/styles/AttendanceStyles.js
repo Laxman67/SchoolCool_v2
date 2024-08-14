@@ -58,7 +58,6 @@ export const SubmitButton = styled.button`
   cursor: pointer;
 `;
 
-
 export const SidebarContainer = styled.div`
   flex: 0 0 250px; /* Sidebar width */
 `;
