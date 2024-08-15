@@ -6,12 +6,13 @@ export const ProfileContainer = styled.div`
 `;
 
 export const SidebarContainer = styled.div`
-  flex: 0 0 250px; 
+  flex: 0 0 250px;
 `;
 
 export const Content = styled.div`
   flex: 1;
   padding: 20px;
+  margin-left: 18%;
 `;
 
 export const ProfileHeader = styled.h1`

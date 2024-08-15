@@ -18,6 +18,7 @@ import EventCalender from './pages/Admin/EventCalender';
 import SettingProfile from './pages/Admin/SettingProfile';
 import Communication from './pages/Admin/Communication';
 import Announcement from './pages/Admin/Announcement';
+import './index.css';
 
 function App() {
   return (

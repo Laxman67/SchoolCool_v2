@@ -13,7 +13,7 @@ import {
   AdminRegisterLink,
   LoremTextContainer,
 } from '../styles/styles';
-import background from '../assets/backgrund.jpeg';
+import background from '../assets/indian-group-college.png';
 import logo from '../assets/logo.jpeg';
 import { LoremIpsum } from 'lorem-ipsum';
 
