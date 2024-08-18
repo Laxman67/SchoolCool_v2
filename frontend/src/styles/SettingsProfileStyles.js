@@ -9,6 +9,11 @@ export const SidebarContainer = styled.div`
   flex: 0 0 250px;
 `;
 
+export const ProfileContent = styled.div`
+  padding: 20px;
+  margin-left: 190px;
+`;
+
 export const Content = styled.div`
   flex: 1;
   padding: 20px;

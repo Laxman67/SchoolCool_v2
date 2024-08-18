@@ -30,13 +30,13 @@ import {
 } from '../../styles/SidebarStyles';
 
 const Sidebar = () => {
-  const [isOpen, setIsOpen] = useState(true);
+  const [isopen, setisopen] = useState(true);
   const toggleSidebar = () => {
-    setIsOpen(!isOpen);
+    setisopen(!isopen);
   };
 
   return (
-    <SidebarContainer style={{ width: isOpen ? '250px' : '80px' }}>
+    <SidebarContainer style={{ width: isopen ? '250px' : '80px' }}>
       <SidebarHeader>
         <Logo src={logo} />
       </SidebarHeader>
@@ -112,7 +112,7 @@ const Sidebar = () => {
             toggleSidebar();
           }}
         >
-          <ToggleIcon isOpen={isOpen}>
+          <ToggleIcon isopen={toString(isopen)}>
             <AiFillCaretLeft />
           </ToggleIcon>
         </ToggleButton>

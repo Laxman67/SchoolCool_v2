@@ -15,6 +15,7 @@ import {
   CardContent,
   StudentDashboardContainer,
 } from '../../styles/DashboardStyles';
+import LineGraph from '../../components/LineGraph';
 
 const StudentDashboard = () => {
   return (

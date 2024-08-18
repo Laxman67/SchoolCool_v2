@@ -16,8 +16,6 @@ import {
   CardTitle,
   CardContainer,
   CardContent,
-  StudentDashboardContainer,
-  TeacherDashboardContainer,
 } from '../../styles/DashboardStyles';
 const AdminDashboard = () => {
   return (

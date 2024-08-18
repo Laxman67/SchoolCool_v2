@@ -38,6 +38,8 @@ export const PerformanceInfo = styled.div`
 
 export const PerformanceGraphContainer = styled.div`
   margin-bottom: 20px;
+  width: 50%;
+  margin: 10px auto;
 `;
 
 export const TotalMarks = styled.div`

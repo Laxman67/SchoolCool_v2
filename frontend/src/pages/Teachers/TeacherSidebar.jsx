@@ -5,15 +5,12 @@ import { AiFillCaretLeft } from 'react-icons/ai';
 import {
   BsGraphUp,
   BsPeople,
-  BsPerson,
-  BsFileText,
   BsBook,
+  BsPerson,
   BsGraphDown,
   BsCalendar,
   BsGear,
   BsChatDots,
-  BsCalendarEvent,
-  BsQuestionSquare,
 } from 'react-icons/bs';
 
 import logo from '../../assets/Logo.jpeg';
@@ -29,7 +26,7 @@ import {
   ToggleIcon,
 } from '../../styles/SidebarStyles';
 
-const Sidebar = () => {
+const TeaceherSidebar = () => {
   const [isopen, setisopen] = useState(true);
   const toggleSidebar = () => {
     setisopen(!isopen);
@@ -43,55 +40,56 @@ const Sidebar = () => {
       <SidebarNav>
         <SidebarNavItem>
           <BsGraphUp />
-          <StyledLink to="/students/dashboard">Dashboard</StyledLink>
+          <StyledLink to="/teacher/dashboard">Dashboard</StyledLink>
         </SidebarNavItem>
         <SidebarNavItem>
           <BsPeople />
-          <StyledLink to="/students/classes">Classes</StyledLink>
+          <StyledLink to="/teacher/classes">Classes</StyledLink>
+        </SidebarNavItem>
+        <SidebarNavItem>
+          <BsPerson />
+          <StyledLink to="/teacher/students">Students</StyledLink>
+        </SidebarNavItem>
+        <SidebarNavItem>
+          <BsPerson />
+          <StyledLink to="/teacher/teachers">Teachers</StyledLink>
         </SidebarNavItem>
 
         <SidebarNavItem>
           <BsBook />
-          <StyledLink to="/students/assignments">Assignments</StyledLink>
+          <StyledLink to="/teacher/assignments">Assignments</StyledLink>
         </SidebarNavItem>
         <SidebarNavItem>
           <BsBook />
-          <StyledLink to="/students/exam">Exams</StyledLink>
+          <StyledLink to="/teacher/exam">Exams</StyledLink>
         </SidebarNavItem>
 
         <SidebarNavItem>
           <SidebarIcon>
             <BsGraphDown />
           </SidebarIcon>
-          <StyledLink to="/students/performance">Performance</StyledLink>
+          <StyledLink to="/teacher/performance">Performance</StyledLink>
         </SidebarNavItem>
 
         <SidebarNavItem>
           <SidebarIcon>
             <BsCalendar />
           </SidebarIcon>
-          <StyledLink to="/students/attendence">Attendence</StyledLink>
-        </SidebarNavItem>
-
-        <SidebarNavItem>
-          <SidebarIcon>
-            <BsBook />
-          </SidebarIcon>
-          <StyledLink to="/students/library">Library</StyledLink>
+          <StyledLink to="/teacher/attendence">Attendence</StyledLink>
         </SidebarNavItem>
 
         <SidebarNavItem>
           <SidebarIcon>
             <BsChatDots />
           </SidebarIcon>
-          <StyledLink to="/students/communication">Announcements</StyledLink>
+          <StyledLink to="/teacher/communication">Announcements</StyledLink>
         </SidebarNavItem>
 
         <SidebarNavItem>
           <SidebarIcon>
             <BsGear />
           </SidebarIcon>
-          <StyledLink to="/students/settings">Setting and Profile</StyledLink>
+          <StyledLink to="/teacher/settings">Setting and Profile</StyledLink>
         </SidebarNavItem>
         <ToggleButton
           onClick={() => {
@@ -107,4 +105,4 @@ const Sidebar = () => {
   );
 };
 
-export default Sidebar;
+export default TeaceherSidebar;
