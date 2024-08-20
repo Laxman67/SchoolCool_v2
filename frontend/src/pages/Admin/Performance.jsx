@@ -8,10 +8,6 @@ import {
   PerformanceHeader,
   SchoolPerformance,
   IndividualPerformance,
-  SidebarContainer,
-  PerformanceInfo,
-  PerformanceGraphContainer,
-  TotalMarks,
 } from '../../styles/PerformanceStyles';
 
 const Performance = () => {

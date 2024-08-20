@@ -82,6 +82,12 @@ const TeaceherSidebar = () => {
           <SidebarIcon>
             <BsChatDots />
           </SidebarIcon>
+          <StyledLink to="/teacher/events">Events</StyledLink>
+        </SidebarNavItem>
+        <SidebarNavItem>
+          <SidebarIcon>
+            <BsChatDots />
+          </SidebarIcon>
           <StyledLink to="/teacher/communication">Announcements</StyledLink>
         </SidebarNavItem>
 
