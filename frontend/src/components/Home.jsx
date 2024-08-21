@@ -48,9 +48,11 @@ const Home = () => {
           <LoremTextContainer>
             <p>{loremText}</p>
           </LoremTextContainer>
-          <AdminRegisterLink>Admin Register</AdminRegisterLink>
+          <SchoolImage
+            src="https://smartstudent.app/media/2022/09/managment-software.png"
+            alt="AL"
+          />
         </SchoolInfo>
-        <SchoolImage src={background} alt="Students " />
       </HomeContainer>
     </>
   );
