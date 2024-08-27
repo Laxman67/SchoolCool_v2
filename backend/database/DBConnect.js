@@ -2,7 +2,7 @@ import mongoose from 'mongoose';
 
 const DBConnect = async () => {
   await mongoose
-    .connect(process.env.LOCALEDB_URL || process.env.MONGODB_URL, {
+    .connect(process.env.MONGODB_URL, {
       dbName: 'SchoolManagement',
     })
     .then(() => {
