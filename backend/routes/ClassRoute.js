@@ -1,9 +1,9 @@
 import express from 'express';
-import { createBook, getAllBooks } from '../controllers/libraryController.js';
+import { createClass, getAllClass } from '../controllers/classController.js';
 
-const libraryRouter = express.Router();
+const classRouter = express.Router();
 
-libraryRouter.get('/', getAllBooks);
-libraryRouter.post('/', createBook);
+classRouter.get('/', getAllClass);
+classRouter.post('/', createClass);
 
-export default libraryRouter;
+export default classRouter;
