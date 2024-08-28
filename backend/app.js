@@ -20,7 +20,7 @@ DBConnect();
 // middleware
 // This defines which site or url can request to this server & accepted methods
 
-app.use(express.json());
+app.use(express.json()); // To parse JSON body
 app.use(express.urlencoded({ extended: true }));
 app.use(cors({ origin: 'http://localhost:5173' }));
 // app.use(
