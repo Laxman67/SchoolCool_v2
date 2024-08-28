@@ -1,7 +1,6 @@
 import { useState, useEffect } from 'react';
 import axios from 'axios';
 
-import Sidebar from './Sidebar';
 import Annoucement from './Announcement';
 import Performance from './Performance';
 
@@ -17,35 +16,45 @@ import {
   CardContainer,
   CardContent,
 } from '../../styles/DashboardStyles';
+
 const AdminDashboard = () => {
-  const BACKEND_URL = 'http://localhost:4000/api/v1';
+  const url = `${import.meta.env.VITE_BACKEND_URL}/api/v1`;
+  const BACKEND_URL = url || 'http://localhost:4000/api/v1';
+
   const [isOpen, setIsOpen] = useState(true);
-  const [events, setEvents] = useState([]);
+  const [annoucements, setAnnoucements] = useState([]);
   const [studentPerformance, setStudentPerformance] = useState([]);
 
   useEffect(() => {
-    fetchEvents();
+    // fetchEvents();
+
     fetchAnnoucements();
     fetchStudentPerformance();
   }, []);
 
-  const fetchEvents = async () => {
-    try {
-      const response = await axios.get(`${BACKEND_URL}/events`);
-      // console.log(response.data.data);
-      setEvents(response.data.data || []);
-    } catch (error) {
-      console.log(`Error Occured while fteching events ${error}`);
-    }
-  };
+  // const fetchEvents = async () => {
+  //   try {
+  //     const response = await axios.get(`${BACKEND_URL}/events`);
+  //     // console.log(response.data.data);
+  //     setAnnoucements(response.data.data || []);
+  //   } catch (error) {
+  //     console.log(`Error Occured while fteching events ${error}`);
+  //   }
+  // };
+
   const fetchAnnoucements = async () => {
     const response = await axios.get(`${BACKEND_URL}/announcement`);
-    setEvents(response.data.data);
+    setAnnoucements(response.data.data);
   };
-  const fetchStudentPerformance = async () => {};
 
-  console.log(events);
-  console.log(events);
+  const fetchStudentPerformance = async () => {
+    const response = await axios.get(`${BACKEND_URL}/students`);
+    setStudentPerformance(response.data.data);
+  };
+
+  // TODO remove it
+  console.log(annoucements);
+  console.log(studentPerformance);
   return (
     <>
       <AdminDashboardContainer>
@@ -74,8 +83,8 @@ const AdminDashboard = () => {
           </TopContent>
 
           <BottomContent>
-            <Performance />
-            <Annoucement />
+            <Performance studentPerformance={studentPerformance} />
+            <Annoucement annoucements={annoucements} />
           </BottomContent>
         </Content>
       </AdminDashboardContainer>
