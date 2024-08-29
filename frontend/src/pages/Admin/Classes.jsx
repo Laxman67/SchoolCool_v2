@@ -21,10 +21,10 @@ import axios from 'axios';
 let BACKEND_URL = '';
 if (import.meta.env.MODE === 'development') {
   BACKEND_URL = 'http://localhost:4000/api/v1';
-  // console.log(BACKEND_URL);
+  console.log(import.meta.env.MODE);
 } else {
   BACKEND_URL = import.meta.env.VITE_REACT_API_URL;
-  // console.log(BACKEND_URL);
+  console.log(import.meta.env.MODE);
 }
 
 const Classes = () => {
