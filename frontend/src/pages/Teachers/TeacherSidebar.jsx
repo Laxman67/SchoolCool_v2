@@ -13,7 +13,7 @@ import {
   BsChatDots,
 } from 'react-icons/bs';
 
-import logo from '../../assets/Logo.jpeg';
+// import logo from '../../assets/Logo.jpeg';
 import {
   SidebarContainer,
   SidebarHeader,
@@ -35,7 +35,7 @@ const TeaceherSidebar = () => {
   return (
     <SidebarContainer style={{ width: isopen ? '250px' : '80px' }}>
       <SidebarHeader>
-        <Logo src={logo} />
+        <Logo src={'logo'} alt="logo" />
       </SidebarHeader>
       <SidebarNav>
         <SidebarNavItem>

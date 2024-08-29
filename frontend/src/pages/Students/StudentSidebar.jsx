@@ -16,7 +16,7 @@ import {
   BsQuestionSquare,
 } from 'react-icons/bs';
 
-import logo from '../../assets/Logo.jpeg';
+// import logo from '../../assets/Logo.jpeg';
 import {
   SidebarContainer,
   SidebarHeader,
@@ -38,7 +38,7 @@ const Sidebar = () => {
   return (
     <SidebarContainer style={{ width: isopen ? '250px' : '80px' }}>
       <SidebarHeader>
-        <Logo src={logo} />
+        <Logo src={'logo'} alt="Logo" />
       </SidebarHeader>
       <SidebarNav>
         <SidebarNavItem>

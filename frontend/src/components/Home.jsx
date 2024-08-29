@@ -14,7 +14,7 @@ import {
   LoremTextContainer,
 } from '../styles/styles';
 import background from '../assets/indian-group-college.png';
-import logo from '../assets/logo.jpeg';
+// import logo from '../assets/logo.jpeg';
 import { LoremIpsum } from 'lorem-ipsum';
 
 import { Link, useNavigate } from 'react-router-dom';
@@ -31,7 +31,7 @@ const Home = () => {
   return (
     <>
       <Navbar>
-        <Logo src={logo} alt="Logo" />
+        <Logo src={'logo'} alt="Logo" />
         <NavigationLinks>
           <NavLink href="#">About Us </NavLink>
           <NavLink href="#">Products</NavLink>
