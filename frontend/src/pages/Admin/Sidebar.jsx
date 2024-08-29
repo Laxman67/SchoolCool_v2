@@ -38,7 +38,7 @@ const Sidebar = () => {
   return (
     <SidebarContainer style={{ width: isopen ? '250px' : '80px' }}>
       <SidebarHeader>
-        <Logo src={logo} />
+        <Logo src={'logo'} />
       </SidebarHeader>
       <SidebarNav>
         <SidebarNavItem>
