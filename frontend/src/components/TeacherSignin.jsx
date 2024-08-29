@@ -30,7 +30,7 @@ function TeacherSignin() {
           value={password}
           onChange={(e) => setPassword(e.target.value)}
         />
-        <SubmitButton to="/teachers/dashboard" onClick={handleSignIn}>
+        <SubmitButton to="/teacher/dashboard" onClick={handleSignIn}>
           Sign In
         </SubmitButton>
       </FormContainer>

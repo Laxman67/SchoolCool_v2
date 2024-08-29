@@ -14,7 +14,6 @@ import {
   StudentDashboardContainer,
   TeacherDashboardContainer,
 } from '../../styles/DashboardStyles';
-import { SidebarContainer } from '../../styles/SidebarStyles';
 
 const TeacherDashboard = () => {
   return (
