@@ -1,4 +1,6 @@
 import { useState, useEffect } from 'react';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 import {
   ClassesContainer,
   Content,
@@ -16,9 +18,16 @@ import {
 import SideBar from '../Admin/Sidebar';
 import axios from 'axios';
 
+let BACKEND_URL = '';
+if (import.meta.env.MODE === 'development') {
+  BACKEND_URL = 'http://localhost:4000/api/v1';
+  // console.log(BACKEND_URL);
+} else {
+  BACKEND_URL = import.meta.env.VITE_REACT_API_URL;
+  // console.log(BACKEND_URL);
+}
+
 const Classes = () => {
-  const BACKEND_URL =
-    'http://localhost:4000/api/v1' || import.meta.env.VITE_REACT_API_URL;
   const [className, setClassName] = useState('');
   const [classes, setClasses] = useState([]);
 
@@ -40,6 +49,7 @@ const Classes = () => {
           grade: className,
         });
         setClassName('');
+        toast.success('Data Added');
 
         console.log('Response data :', response.data.message);
       } catch (error) {
@@ -53,9 +63,10 @@ const Classes = () => {
       <ClassesContainer>
         <SideBar />
         <Content>
+          <ToastContainer />
           <ClassesContent>
             <ClassHeader>Classes</ClassHeader>
-            <AddClassForm>
+            <AddClassForm onSubmit={handleAddClass}>
               <AddClassInput
                 type="text"
                 value={className}
@@ -65,14 +76,7 @@ const Classes = () => {
                 }}
                 // {...register('class-name')}
               />
-              <AddClassButton
-                type="submit"
-                onClick={(e) => {
-                  handleAddClass(e);
-                }}
-              >
-                Add Class
-              </AddClassButton>
+              <AddClassButton type="submit">Add Class</AddClassButton>
             </AddClassForm>
 
             {/* All the classes */}
