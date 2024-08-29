@@ -33,13 +33,14 @@ const Classes = () => {
 
   useEffect(() => {
     fetchClasses();
-  }, []);
+  }, [className]);
 
   const fetchClasses = async () => {
     const response = await axios.get(`${BACKEND_URL}/classes`);
     setClasses(response.data.data);
   };
 
+  console.log(classes);
   const handleAddClass = async (e) => {
     e.preventDefault();
 
@@ -79,8 +80,12 @@ const Classes = () => {
               <AddClassButton type="submit">Add Class</AddClassButton>
             </AddClassForm>
 
-            {/* All the classes */}
-            <ClassList></ClassList>
+            <ClassList>
+              {classes &&
+                classes.map((item, index) => (
+                  <ClassItem key={index}>{item.grade}</ClassItem>
+                ))}
+            </ClassList>
           </ClassesContent>
         </Content>
       </ClassesContainer>
