@@ -22,7 +22,14 @@ DBConnect();
 
 app.use(express.json()); // To parse JSON body
 app.use(express.urlencoded({ extended: true }));
-app.use(cors({ origin: 'http://localhost:5173' }));
+app.use(
+  cors({
+    origin: [
+      'http://localhost:5173',
+      'https://schoolcool2-frontend.onrender.com/',
+    ],
+  })
+);
 // app.use(
 
 //   cors({
