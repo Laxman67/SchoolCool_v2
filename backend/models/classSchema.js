@@ -9,7 +9,6 @@ const classSchema = new Schema(
       type: String,
       required: true,
     },
-    
   },
   schemaOptions
 );
