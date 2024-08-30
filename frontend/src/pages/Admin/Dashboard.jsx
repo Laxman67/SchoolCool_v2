@@ -52,9 +52,6 @@ const AdminDashboard = () => {
     setStudentPerformance(response.data.data);
   };
 
-  // TODO remove it
-  console.log(annoucements);
-  console.log(studentPerformance);
   return (
     <>
       <AdminDashboardContainer>

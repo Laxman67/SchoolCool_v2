@@ -40,7 +40,6 @@ const Classes = () => {
     setClasses(response.data.data);
   };
 
-  console.log(classes);
   const handleAddClass = async (e) => {
     e.preventDefault();
 

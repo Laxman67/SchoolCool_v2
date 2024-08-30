@@ -35,12 +35,11 @@ const Students = () => {
 
   useEffect(() => {
     fetchStudents();
-  }, []);
+  }, [newStudent]);
 
   const fetchStudents = async () => {
     const response = await axios.get(`${BACKEND_URL}/students`);
     setStudents(response.data.data);
-    console.log(students);
   };
 
   const handleAddStudent = async (e) => {
@@ -53,17 +52,21 @@ const Students = () => {
           registrationNumber: newStudent.registrationNumber,
           grade: newStudent.grade,
         });
-        setNewStudent('');
-        toast.success('Student Added');
 
-        console.log('Response data :', response.data.message);
+        // Reset Form Data after Submition
+
+        setStudents({
+          name: '',
+          registrationNumber: '',
+          grade: '',
+        });
+
+        toast.success('Student Added');
       } catch (error) {
         console.log('Error While Feching Classes', error);
       }
     }
   };
-
-  console.log(students);
 
   return (
     <StudentsContainer>
@@ -77,8 +80,8 @@ const Students = () => {
             <StudentsHeader>
               <AddStudentForm onSubmit={handleAddStudent}>
                 <AddStudentInput
-                  type="text"
-                  placeholder="Enter Student Name"
+                  type='text'
+                  placeholder='Enter Student Name'
                   value={newStudent.name}
                   onChange={(e) => {
                     setNewStudent((prev) => ({
@@ -88,8 +91,8 @@ const Students = () => {
                   }}
                 />
                 <AddStudentInput
-                  type="text"
-                  placeholder="Enter Registration Number"
+                  type='text'
+                  placeholder='Enter Registration Number'
                   value={newStudent.registrationNumber}
                   onChange={(e) => {
                     setNewStudent((prev) => ({
@@ -99,8 +102,8 @@ const Students = () => {
                   }}
                 />
                 <AddStudentInput
-                  type="text"
-                  placeholder="Enter Grade "
+                  type='text'
+                  placeholder='Enter Grade '
                   value={newStudent.grade}
                   onChange={(e) => {
                     setNewStudent((prev) => ({

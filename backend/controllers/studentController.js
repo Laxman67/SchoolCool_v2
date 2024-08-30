@@ -21,10 +21,9 @@ export const createStudent = async (req, res, next) => {
       message: 'Student Created',
     });
   } catch (error) {
-    const { errmsg } = error.errorResponse;
     return res.status(404).json({
       success: false,
-      errmsg,
+      error,
     });
   }
 };
