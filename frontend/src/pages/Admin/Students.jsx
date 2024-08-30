@@ -16,14 +16,7 @@ import {
   AddStudentInput,
 } from '../../styles/StudentsStyles';
 
-let BACKEND_URL = '';
-if (import.meta.env.MODE === 'development') {
-  BACKEND_URL = 'http://localhost:4000/api/v1';
-  // console.log(BACKEND_URL);
-} else {
-  BACKEND_URL = import.meta.env.VITE_REACT_API_URL;
-  // console.log(BACKEND_URL);
-}
+let BACKEND_URL = import.meta.env.VITE_API_URL;
 
 const Students = () => {
   const [newStudent, setNewStudent] = useState({
@@ -35,36 +28,43 @@ const Students = () => {
 
   useEffect(() => {
     fetchStudents();
-  }, [newStudent]);
+  }, []);
 
   const fetchStudents = async () => {
-    const response = await axios.get(`${BACKEND_URL}/students`);
-    setStudents(response.data.data);
+    try {
+      const response = await axios.get(`${BACKEND_URL}/students`);
+      setStudents(response.data.data);
+    } catch (error) {
+      console.error('Error fetching students:', error);
+    }
   };
 
   const handleAddStudent = async (e) => {
     e.preventDefault();
 
-    if (newStudent !== '') {
+    if (newStudent.name && newStudent.registrationNumber && newStudent.grade) {
       try {
-        const response = await axios.post(`${BACKEND_URL}/students`, {
+        await axios.post(`${BACKEND_URL}/students`, {
           name: newStudent.name,
           registrationNumber: newStudent.registrationNumber,
           grade: newStudent.grade,
         });
 
-        // Reset Form Data after Submition
-
-        setStudents({
+        // Reset form data after submission
+        setNewStudent({
           name: '',
           registrationNumber: '',
           grade: '',
         });
 
         toast.success('Student Added');
+        fetchStudents(); // Refresh the student list
       } catch (error) {
-        console.log('Error While Feching Classes', error);
+        console.log('Error while adding student:', error);
+        toast.error('Failed to add student');
       }
+    } else {
+      toast.error('Please fill in all fields');
     }
   };
 
@@ -75,58 +75,51 @@ const Students = () => {
         <StudentsContent>
           <ToastContainer />
           <StudentsHeader>Add Student</StudentsHeader>
+          <AddStudentForm onSubmit={handleAddStudent}>
+            <AddStudentInput
+              type='text'
+              placeholder='Enter Student Name'
+              value={newStudent.name}
+              onChange={(e) =>
+                setNewStudent((prev) => ({ ...prev, name: e.target.value }))
+              }
+            />
+            <AddStudentInput
+              type='text'
+              placeholder='Enter Registration Number'
+              value={newStudent.registrationNumber}
+              onChange={(e) =>
+                setNewStudent((prev) => ({
+                  ...prev,
+                  registrationNumber: e.target.value,
+                }))
+              }
+            />
+            <AddStudentInput
+              type='text'
+              placeholder='Enter Grade'
+              value={newStudent.grade}
+              onChange={(e) =>
+                setNewStudent((prev) => ({ ...prev, grade: e.target.value }))
+              }
+            />
+            <AddStudentButton>Add Student</AddStudentButton>
+          </AddStudentForm>
 
-          <StudentsContainer>
-            <StudentsHeader>
-              <AddStudentForm onSubmit={handleAddStudent}>
-                <AddStudentInput
-                  type='text'
-                  placeholder='Enter Student Name'
-                  value={newStudent.name}
-                  onChange={(e) => {
-                    setNewStudent((prev) => ({
-                      ...prev,
-                      name: e.target.value, // Update only the name property
-                    }));
-                  }}
-                />
-                <AddStudentInput
-                  type='text'
-                  placeholder='Enter Registration Number'
-                  value={newStudent.registrationNumber}
-                  onChange={(e) => {
-                    setNewStudent((prev) => ({
-                      ...prev,
-                      registrationNumber: e.target.value, // Update only the name property
-                    }));
-                  }}
-                />
-                <AddStudentInput
-                  type='text'
-                  placeholder='Enter Grade '
-                  value={newStudent.grade}
-                  onChange={(e) => {
-                    setNewStudent((prev) => ({
-                      ...prev,
-                      grade: e.target.value, // Update only the name property
-                    }));
-                  }}
-                />
-
-                <AddStudentButton>Add Student</AddStudentButton>
-              </AddStudentForm>
-
-              {/* TODO  Complete List of Students view*/}
-              <StudentList>
-                {students &&
-                  students.map((student, index) => (
-                    <StudentItem key={index}>
-                      {student.name} with {student.grade} Grade
-                    </StudentItem>
-                  ))}
-              </StudentList>
-            </StudentsHeader>
-          </StudentsContainer>
+          <StudentsHeader>Students List</StudentsHeader>
+          <StudentList>
+            {students.length > 0 ? (
+              students.map((student, index) => (
+                <StudentItem key={index}>
+                  <strong>{student.name}</strong> with Registration Number{' '}
+                  <em>{student.registrationNumber}</em> in Grade{' '}
+                  <em>{student.grade}</em>
+                </StudentItem>
+              ))
+            ) : (
+              <StudentItem>No students found</StudentItem>
+            )}
+          </StudentList>
         </StudentsContent>
       </Content>
     </StudentsContainer>

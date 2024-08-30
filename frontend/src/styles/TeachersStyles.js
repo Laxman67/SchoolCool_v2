@@ -96,10 +96,10 @@ export const AddTeacherButton = styled.button`
   border-radius: 4px;
   cursor: pointer;
   font-size: ${typography.body};
-  transition: background-color 0.3s ease, transform 0.2s ease;
+  transition: background-color 0.3s ease, transform 0007bff.2s ease;
 
   &:hover {
-    background-color: #388e3c; /* Darker shade of green */
+    background-color: #007bff; /* Darker shade of green */
     transform: translateY(-2px);
   }
 `;

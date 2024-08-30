@@ -47,7 +47,7 @@ export const AddStudentButton = styled.button`
   padding: 8px 16px;
   background-color: #007bff;
   color: #fff;
-  border: none;
+  border: none;007bff
   border-radius: 4px;
   cursor: pointer;
 `;

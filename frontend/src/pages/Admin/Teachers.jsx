@@ -15,12 +15,7 @@ import {
   AddTeacherButton,
 } from '../../styles/TeachersStyles';
 
-let BACKEND_URL = '';
-if (import.meta.env.MODE === 'development') {
-  BACKEND_URL = 'http://localhost:4000/api/v1';
-} else {
-  BACKEND_URL = import.meta.env.VITE_REACT_API_URL;
-}
+let BACKEND_URL = import.meta.env.VITE_API_URL;
 
 const Teachers = () => {
   const [newTeacher, setNewTeacher] = useState({

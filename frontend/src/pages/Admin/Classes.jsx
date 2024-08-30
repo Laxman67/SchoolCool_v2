@@ -18,14 +18,7 @@ import {
 import SideBar from '../Admin/Sidebar';
 import axios from 'axios';
 
-let BACKEND_URL = '';
-if (import.meta.env.MODE === 'development') {
-  BACKEND_URL = 'http://localhost:4000/api/v1';
-  console.log(import.meta.env.MODE);
-} else {
-  BACKEND_URL = import.meta.env.VITE_REACT_API_URL;
-  console.log(import.meta.env.MODE);
-}
+let BACKEND_URL = import.meta.env.VITE_API_URL;
 
 const Classes = () => {
   const [className, setClassName] = useState('');
@@ -68,15 +61,15 @@ const Classes = () => {
             <ClassHeader>Classes</ClassHeader>
             <AddClassForm onSubmit={handleAddClass}>
               <AddClassInput
-                type="text"
+                type='text'
                 value={className}
-                placeholder="Enter Class Name"
+                placeholder='Enter Class Name'
                 onChange={(e) => {
                   setClassName(e.target.value);
                 }}
                 // {...register('class-name')}
               />
-              <AddClassButton type="submit">Add Class</AddClassButton>
+              <AddClassButton type='submit'>Add Class</AddClassButton>
             </AddClassForm>
 
             <ClassList>
