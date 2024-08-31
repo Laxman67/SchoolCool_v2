@@ -35,7 +35,7 @@ const TeaceherSidebar = () => {
   return (
     <SidebarContainer style={{ width: isopen ? '250px' : '80px' }}>
       <SidebarHeader>
-        <Logo src={'logo'} alt="logo" />
+     <Logo src={'https://cdn-icons-png.flaticon.com/256/1063/1063385.png'} />
       </SidebarHeader>
       <SidebarNav>
         <SidebarNavItem>
