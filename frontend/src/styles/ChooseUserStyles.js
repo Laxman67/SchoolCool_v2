@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 
 export const ChooseUserContainer = styled.div`
   margin: 0;
-  background: url(https://st.depositphotos.com/1705350/4917/v/450/depositphotos_49172079-stock-illustration-back-to-school-background.jpg)
+  background: url(https://static.vecteezy.com/system/resources/previews/006/941/002/non_2x/small-hexagon-shape-with-light-white-and-grey-color-seamless-pattern-background-free-vector.jpg)
     no-repeat;
 
   z-index: 1;
