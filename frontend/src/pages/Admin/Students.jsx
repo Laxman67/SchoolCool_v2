@@ -3,6 +3,7 @@ import SideBar from '../Admin/Sidebar';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import axios from 'axios';
+import ProfileModal from './ProfileModal'; // Import the ProfileModal component
 
 import {
   StudentsContainer,
@@ -25,6 +26,7 @@ const Students = () => {
     grade: '',
   });
   const [students, setStudents] = useState([]);
+  const [selectedStudent, setSelectedStudent] = useState(null); // State for selected student
 
   useEffect(() => {
     fetchStudents();
@@ -50,7 +52,6 @@ const Students = () => {
           grade: newStudent.grade,
         });
 
-        // Reset form data after submission
         setNewStudent({
           name: '',
           registrationNumber: '',
@@ -66,6 +67,14 @@ const Students = () => {
     } else {
       toast.error('Please fill in all fields');
     }
+  };
+
+  const handleStudentClick = (student) => {
+    setSelectedStudent(student); // Set the selected student to display in the modal
+  };
+
+  const closeModal = () => {
+    setSelectedStudent(null); // Close the modal
   };
 
   return (
@@ -110,7 +119,10 @@ const Students = () => {
           <StudentList>
             {students.length > 0 ? (
               students.map((student, index) => (
-                <StudentItem key={index}>
+                <StudentItem
+                  key={index}
+                  onClick={() => handleStudentClick(student)}
+                >
                   <strong>{student.name}</strong> with Registration Number{' '}
                   <em>{student.registrationNumber}</em> in Grade{' '}
                   <em>{student.grade}</em>
@@ -120,6 +132,11 @@ const Students = () => {
               <StudentItem>No students found</StudentItem>
             )}
           </StudentList>
+
+          {/* Modal for displaying student profile */}
+          {selectedStudent && (
+            <ProfileModal student={selectedStudent} onClose={closeModal} />
+          )}
         </StudentsContent>
       </Content>
     </StudentsContainer>
