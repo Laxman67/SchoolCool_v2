@@ -3,6 +3,8 @@ import styled from 'styled-components';
 import { Link } from 'react-router-dom';
 
 export const TeacherSignInContainer = styled.div`
+ background: url(https://static.vecteezy.com/system/resources/previews/006/941/002/non_2x/small-hexagon-shape-with-light-white-and-grey-color-seamless-pattern-background-free-vector.jpg)
+    no-repeat;
   display: flex;
   flex-direction: column;
   align-items: center;
