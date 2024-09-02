@@ -30,7 +30,7 @@ export const getAllExams = async (req, res, next) => {
 
     res.status(200).json({
       message: 'Exam ',
-      data: exam,
+      exam,
     });
   } catch (error) {
     next(error);

@@ -39,7 +39,7 @@ app.use('/api/v1/students', studentRouter);
 app.use('/api/v1/events', eventsRouter);
 app.use('/api/v1/library', libraryRouter);
 app.use('/api/v1/announcement', announcementRouter);
-app.use('/api/v1/assignment', assignmentRouter);
+app.use('/api/v1/assignments', assignmentRouter);
 app.use('/api/v1/attendance', attendanceRouter);
 app.use('/api/v1/classes', classRouter);
 app.use('/api/v1/exam', examRouter);

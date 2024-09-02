@@ -73,16 +73,49 @@ const Classes = () => {
             </AddClassForm>
 
             <ClassList>
-              {classes &&
-                classes.map((item, index) => (
-                  <ClassItem key={index}>{item.grade}</ClassItem>
-                ))}
+              <div style={styles.classList}>
+                {classes && classes.length > 0 ? (
+                  classes.map((item, index) => (
+                    <div key={index} style={styles.classItem}>
+                      {item.grade}
+                    </div>
+                  ))
+                ) : (
+                  <p style={styles.noClasses}>No classes available</p>
+                )}
+              </div>
+              );
             </ClassList>
           </ClassesContent>
         </Content>
       </ClassesContainer>
     </>
   );
+};
+
+const styles = {
+  classList: {
+    padding: '20px',
+    maxWidth: '600px',
+    margin: 'auto',
+    border: '1px solid #ddd',
+    borderRadius: '8px',
+    backgroundColor: '#fafafa',
+  },
+  classItem: {
+    border: '1px solid #ddd',
+    borderRadius: '8px',
+    padding: '10px',
+    marginBottom: '10px',
+    backgroundColor: '#fff',
+    boxShadow: '0 2px 4px rgba(0,0,0,0.1)',
+    fontSize: '16px',
+    color: '#333',
+  },
+  noClasses: {
+    textAlign: 'center',
+    color: '#999',
+  },
 };
 
 export default Classes;

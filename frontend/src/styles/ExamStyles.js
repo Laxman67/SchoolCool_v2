@@ -13,6 +13,7 @@ export const SidebarContainer = styled.div`
 export const Content = styled.div`
   flex: 1;
   padding: 20px;
+  padding-left: 20%;
 `;
 
 export const ExamHeader = styled.h1`
