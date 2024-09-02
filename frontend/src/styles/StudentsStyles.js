@@ -20,6 +20,7 @@ export const StudentsHeader = styled.h2`
 `;
 
 export const StudentList = styled.ul`
+  cursor: pointer;
   list-style: none;
   padding: 0;
 `;

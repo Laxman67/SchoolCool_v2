@@ -18,6 +18,9 @@ import {
   AnnouncementTitle,
 } from '../../styles/AnnouncementStyles';
 
+let BACKEND_URL = import.meta.env.VITE_API_URL;
+
+
 const Announcement = () => {
   return (
     <AnnouncementContainer>
@@ -27,15 +30,15 @@ const Announcement = () => {
           <Title>Announcements</Title>
           <AnnouncementForm>
             <FormGroup>
-              <Label htmlFor="annoucement_name">Announcement : </Label>
+              <Label htmlFor='annoucement_name'>Announcement : </Label>
               <textarea
-                id="annoucement_name"
-                cols="50"
-                rows="4"
-                placeholder="Annoucement"
+                id='annoucement_name'
+                cols='50'
+                rows='4'
+                placeholder='Annoucement'
               ></textarea>
             </FormGroup>
-            <Button type="submit">Send Annoucement</Button>
+            <Button type='submit'>Send Annoucement</Button>
           </AnnouncementForm>
         </AnnouncementContent>
 
