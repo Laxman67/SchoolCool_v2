@@ -1,22 +1,18 @@
-import { configDotenv } from 'dotenv';
+import { config } from 'dotenv';
 import express from 'express';
 import cors from 'cors';
 import DBConnect from './database/DBConnect.js';
+import { errorMiddleware } from './middleware/errorHandler.js';
+import cookieParser from 'cookie-parser';
 import studentRouter from './routes/studentRouter.js';
-import eventsRouter from './routes/eventsRoute.js';
-import libraryRouter from './routes/libraryRoute.js';
-import announcementRouter from './routes/announcementRoute.js';
-import assignmentRouter from './routes/assignmentRoute.js';
-import attendanceRouter from './routes/attendanceRoute.js';
-import classRouter from './routes/ClassRoute.js';
-import examRouter from './routes/examRoute.js';
-import teacherRouter from './routes/teacherRoute.js';
+import parentRouter from './routes/parentRouter.js';
+import fileUpload from 'express-fileupload';
 
 const app = express();
-configDotenv();
 
-// Database
-DBConnect();
+config({
+  path: './config/config.env',
+});
 
 // CORS Configuration
 app.use(
@@ -30,19 +26,28 @@ app.use(
   })
 );
 
-// Middleware
-app.use(express.json()); // To parse JSON body
-app.use(express.urlencoded({ extended: true }));
+app.use(cookieParser());
+app.use(express.json());
+app.use(express.urlencoded({ extended: true })); // to get form data
+
+// Express File Upload Setup
+app.use(
+  fileUpload({
+    useTempFiles: true,
+    tempFileDir: '/tmp/',
+  })
+);
 
 // API Routes
-app.use('/api/v1/students', studentRouter);
-app.use('/api/v1/events', eventsRouter);
-app.use('/api/v1/library', libraryRouter);
-app.use('/api/v1/announcement', announcementRouter);
-app.use('/api/v1/assignments', assignmentRouter);
-app.use('/api/v1/attendance', attendanceRouter);
-app.use('/api/v1/classes', classRouter);
-app.use('/api/v1/exam', examRouter);
-app.use('/api/v1/teachers', teacherRouter);
+app.get('/api/v1/docs');
+app.use('/api/v1/student', studentRouter);
+app.use('/api/v1/parent', parentRouter);
+
+// Database
+DBConnect();
+
+fileUpload;
+
+app.use(errorMiddleware);
 
 export default app;
